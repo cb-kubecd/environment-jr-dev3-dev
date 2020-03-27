@@ -1,0 +1,61 @@
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev3-d-p2dzn-1[0m stage [32mrelease[0m and container [32mstep-credential-initializer-227wz[0m
+{"level":"warn","ts":1585337104.4540436,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1585337104.4544802,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev3-d-p2dzn-1[0m stage [32mrelease[0m and container [32mstep-working-dir-initializer-pjzh4[0m
+{"level":"warn","ts":1585337104.944659,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1585337104.9462402,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev3-d-p2dzn-1[0m stage [32mrelease[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev3-d-p2dzn-1[0m stage [32mrelease[0m and container [32mstep-git-source-cb-kubecd-environment-jr-dev3-d-p2dzn-ctrvr[0m
+{"level":"warn","ts":1585337112.0878227,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1585337113.1866558,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/cb-kubecd/environment-jr-dev3-dev.git @ v0.0.1 in path /workspace/source"}
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev3-d-p2dzn-1[0m stage [32mrelease[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:c41ba4778e86e148a19e0fc3ab7650a233a3ae55
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev3-d-p2dzn-1[0m stage [32mrelease[0m and container [32mstep-validate-git[0m
+Git configured for user: jenkins-x-bot and email jenkins-x@googlegroups.com
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev3-d-p2dzn-1[0m stage [32mrelease[0m and container [32mstep-verify-preinstall[0m
+no need to reconnect to cluster
+writing the following to the OWNERS file for the development environment repository:
+approvers:
+- rawlingsj
+reviewers:
+- rawlingsj
+WARNING: TLS is not enabled so your webhooks will be called using HTTP. This means your webhook secret will be sent to your cluster in the clear. See https://jenkins-x.io/docs/getting-started/setup/boot/#ingress for more information
+Verifying the kubernetes cluster before we try to boot Jenkins X in namespace: **
+Trying to lazily create any missing resources to get the current cluster ready to boot Jenkins X
+Verifying Ingress...
+
+Using namespace '**' from context named '' on server ''.
+
+Verifying Storage...
+WARNING: Your requirements have not enabled cloud storage for logs - we recommend enabling this for kubernetes provider gke
+WARNING: Your requirements have not enabled cloud storage for reports - we recommend enabling this for kubernetes provider gke
+WARNING: Your requirements have not enabled cloud storage for repository - we recommend enabling this for kubernetes provider gke
+WARNING: Your requirements have not enabled cloud storage for backup - we recommend enabling this for kubernetes provider gke
+Storage configuration looks good
+
+Validating Kaniko secret in namespace **
+attempting to lazily create the deploy namespace **
+Configuring Kaniko service account jr-dev3-ko for project **-development
+Unable to find service account jr-dev3-ko, checking if we have enough permission to create
+error: failed to lazily create the kaniko secret in: **: creating the service account: failed to run 'gcloud iam list-testable-permissions //cloudresourcemanager.googleapis.com/projects/**-development --filter resourcemanager.projects.setIamPolicy' command in directory '', output: 'WARNING: Could not open the configuration file: [/builder/home/.config/gcloud/configurations/config_default].
+ERROR: (gcloud.iam.list-testable-permissions) You do not currently have an active account selected.
+Please run:
+
+  $ gcloud auth login
+
+to obtain new credentials, or if you have already logged in with a
+different account:
+
+  $ gcloud config set account ACCOUNT
+
+to select an already authenticated account to use.'
+[31m
+Pipeline failed on stage 'release' : container 'step-verify-preinstall'. The execution of the pipeline has stopped.[0m
